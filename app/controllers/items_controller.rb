@@ -40,6 +40,13 @@ def update
   end
 end
 
+def destroy
+  @items = Item.all
+  @item = Item.find(params[:id])
+  @item.destroy
+  redirect_to all_items_path(@items)
+end
+
   private
   def item_params
     params.require(:item).permit(:name, :strength, :speed, :health, :durability)
