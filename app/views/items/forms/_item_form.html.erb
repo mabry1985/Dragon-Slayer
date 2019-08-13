@@ -1,0 +1,31 @@
+<%= form_for [current_user, @item] do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true%>
+  </div>
+
+  <div class="field">
+    <%= f.label :strength %><br />
+    <%= f.text_field :strength %>
+  </div>
+
+  <div class="field">
+    <%= f.label :speed %><br />
+    <%= f.text_field :speed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :health %><br />
+    <%= f.text_field :health %>
+  </div>
+
+  <div class="field">
+    <%= f.label :durability %><br />
+    <%= f.text_field :durability %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

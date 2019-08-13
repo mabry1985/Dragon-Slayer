@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+<div class="character">
+  <h2><%= current_user.username %></h2>
+  <h4>Strength: <%= current_user.strength %></h4>
+  <h4>Speed: <%= current_user.speed %></h4>
+  <h4>Health: <%= current_user.health %></h4>
+</div>
+<% end %>
