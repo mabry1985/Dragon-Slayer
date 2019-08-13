@@ -1,3 +1,4 @@
+require 'pry'
 class AdminsController < ApplicationController
 
 
@@ -6,8 +7,8 @@ render :index
 end
 
 def update
-  binding.pry
   @item = Item.find_by(params[:item_id])
+  binding.pry
   @item.users.push(current_user)
   @item.save
   redirect_to all_items_path
