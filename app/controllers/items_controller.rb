@@ -5,6 +5,9 @@ class ItemsController < ApplicationController
     render :new
   end
 
+  def all
+    render :all
+  end
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -14,8 +17,6 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-
-  
 
   private
   def item_params

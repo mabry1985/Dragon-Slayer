@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2019_08_13_164649) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.integer "strength"
-    t.integer "speed"
-    t.integer "health"
-    t.integer "durability"
+    t.integer "strength", default: 0
+    t.integer "speed", default: 0
+    t.integer "health", default: 0
+    t.integer "durability", default: 10
   end
 
   create_table "users", force: :cascade do |t|
