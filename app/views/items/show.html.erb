@@ -9,4 +9,5 @@
 <p><%= link_to "Delete #{@item.name}", admin_item_path(current_user, @item),
   :data => {:confirm => "Are you sure?", :method => "delete"} %></p>
 
-<p><%= link_to "Return to items", admin_items_path(current_user) %></p>
+<p><%= link_to "Return to items", all_items_path %></p>
+<p><%= link_to "Gimme that #{@item.name}!", admin_items_path(current_user), :data => {:method => "patch"} %>

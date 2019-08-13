@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
 
   def all
     @items = Item.all
+    # @item = Item.find()
     render :all
   end
 

@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   end
 
   get "/all_items" => "items#all"
+  patch 'admins/:id/items', controller: 'admins', action: :update
 
 end
