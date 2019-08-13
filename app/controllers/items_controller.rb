@@ -6,8 +6,10 @@ class ItemsController < ApplicationController
   end
 
   def all
+    @items = Item.all
     render :all
   end
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -17,6 +19,26 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
+ def show
+   @item = Item.find(params[:id])
+  render :show
+ end
+
+def edit
+  @item = Item.find(params[:id])
+  render :edit
+end
+
+def update
+  @item = Item.find(params[:id])
+  @item.save
+  if @item.update(item_params)
+    redirect_to admin_item_path(current_user, @item)
+  else
+    render :edit
+  end
+end
 
   private
   def item_params
