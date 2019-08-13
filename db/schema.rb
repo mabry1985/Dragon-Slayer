@@ -15,13 +15,13 @@ ActiveRecord::Schema.define(version: 2019_08_13_210709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "inventory", id: false, force: :cascade do |t|
+  create_table "inventories", id: false, force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_inventory_on_item_id"
-    t.index ["user_id"], name: "index_inventory_on_user_id"
+    t.index ["item_id"], name: "index_inventories_on_item_id"
+    t.index ["user_id"], name: "index_inventories_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
