@@ -1,10 +1,10 @@
-<%= link_to 'Create New Item', admin_items_path(current_user) %>
+<%= link_to 'Create New Item', user_items_path(current_user) %>
 <% if @items.any? %>
 <ul>
   <% @items.each do |item| %>
-    <li><%= link_to item.name, admin_item_path(current_user, item)%></li>
+  <li><%= link_to item.name, user_item_path(current_user, item)%></li>
   <% end %>
-<% else %>
+  <% else %>
   <p>No items</p>
-<% end %>
+  <% end %>
 </ul>

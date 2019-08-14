@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "Item Created"
-      redirect_to admin_items_path(current_user)
+      redirect_to user_items_path(current_user)
     else
       render :new
     end
@@ -32,10 +32,11 @@ def edit
 end
 
 def update
-  @item = Item.find(params[:id])
+  binding.pry
+  @item = Item.find(params[:id => item_id])
   @item.save
   if @item.update(item_params)
-    redirect_to admin_item_path(current_user, @item)
+    redirect_to user_item_path(current_user, @item)
   else
     render :edit
   end
@@ -50,6 +51,6 @@ end
 
   private
   def item_params
-    params.require(:item).permit(:name, :strength, :speed, :health, :durability)
+    params.require(:item).permit(:name, :strength, :speed, :health, :durability, :id)
   end
 end

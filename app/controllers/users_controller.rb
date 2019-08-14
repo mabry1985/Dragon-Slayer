@@ -1,5 +1,5 @@
 require 'pry'
-class AdminsController < ApplicationController
+class UsersController < ApplicationController
 
 
 def show
@@ -7,10 +7,15 @@ render :index
 end
 
 def update
-  @item = Item.find_by(params[:item_id])
+  @user = User.find(params[:user])
   binding.pry
+  @item = Item.find(params[:item_id])
   @item.users.push(current_user)
   @item.save
+  @user.default
+  @user.equip
   redirect_to all_items_path
 end
+
+
 end

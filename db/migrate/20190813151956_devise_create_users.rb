@@ -12,7 +12,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :strength, default: 5
       t.integer :speed, default: 5
       t.integer :health, default: 50
-      
+      t.integer :gold, default: 20
+      t.integer :xp, default: 0
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

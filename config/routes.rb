@@ -7,11 +7,6 @@ Rails.application.routes.draw do
     resources :items
   end
 
-  resources :admins do
-    resources :items
-  end
-
   get "/all_items" => "items#all"
-  patch 'admins/:id/items', controller: 'admins', action: :update
-
+  patch "/users/:id/items" => "items#update"
 end

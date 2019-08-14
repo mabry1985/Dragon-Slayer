@@ -4,13 +4,7 @@ class Inventory < ApplicationRecord
 
 
 
-  def equip
-    @user = User.find(current_user.id)
-    @items = Inventory.where(user_id: @user.id)
-    
 
-
-  end
 
 
 

@@ -1,0 +1,10 @@
+{
+  "notes": {
+    "app": "MVC",
+    "db": "migrations",
+    "app/controllers": "controllers, dummie",
+    "app/models": "models, dummie",
+    "app/views": "views, dumb dumb",
+    "config": "routes and junk"
+  }
+}

@@ -3,10 +3,9 @@
 <h4>Speed: <%= @item.speed %></h4>
 <h4>Health: <%= @item.health %></h4>
 <h4>Durability: <%= @item.durability%></h4>
-<p><%= link_to "Edit", edit_admin_item_path(current_user,@item)%></p>
+<p><%= link_to "Edit", edit_user_item_path(current_user,@item)%></p>
 
-<p><%= link_to "Delete #{@item.name}", admin_item_path(current_user, @item),
+<p><%= link_to "Delete #{@item.name}", user_item_path(current_user, @item),
   :data => {:confirm => "Are you sure?", :method => "delete"} %></p>
-
-<p><%= link_to "Return to items", all_items_path %></p>
-<p><%= link_to "Gimme that #{@item.name}!", admin_items_path(current_user, @item.id), :data => {:method => "patch"} %>
+  <p><%= link_to "Return to items", all_items_path %></p>
+  <p><%= link_to "Gimme that #{@item.name}!", user_items_path(current_user), :data => {:method => "patch"} %>

@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_210709) do
+ActiveRecord::Schema.define(version: 2019_08_14_170423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enemies", force: :cascade do |t|
+    t.string "type"
+    t.integer "strength"
+    t.integer "speed"
+    t.integer "health"
+    t.integer "gold"
+    t.integer "xp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "inventories", id: false, force: :cascade do |t|
     t.bigint "user_id"
@@ -40,12 +51,13 @@ ActiveRecord::Schema.define(version: 2019_08_13_210709) do
     t.integer "strength", default: 5
     t.integer "speed", default: 5
     t.integer "health", default: 50
+    t.integer "gold", default: 20
+    t.integer "xp", default: 0
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "gold", default: 20
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
