@@ -34,17 +34,18 @@ class User < ApplicationRecord
   def fight
     user = User.find(self.id)
     enemy = Enemy.find(1)
+    enemy_attack = user.health -= enemy.strength
+    user_attack = enemy.health -= user.strength
     if user.speed > enemy.speed
-      user.health -= enemy.strength
-      enemy.health -= user.strength
-      enemy.health -= user.strength
+      enemy_attack
+      user_attack
+      user_attack
     elsif user.speed < enemy.speed
-      user.health -= enemy.strength
-      user.health -= enemy.strength
-      enemy.health -= user.strength
+      enemy_attack
+      user_attack
     else
-      user.health -= enemy.strength
-      enemy.health -= user.strength
+      enemy_attack
+      user_attack
     end
     user.update(:health => user.health)
     enemy.update(:health => enemy.health)
