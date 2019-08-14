@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :items
   end
 
+  resources :users do
+    resources :enemies
+  end
+
   get "/all_items" => "items#all"
-  patch "/users/:id/items" => "items#update"
+  patch "/all_items" => "items#add"
 end

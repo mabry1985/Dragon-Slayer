@@ -1,5 +1,5 @@
 
-<%= form_for [current_user, @item] do |f| %>
+<%= form_for [current_user, @enemy] do |f| %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -22,8 +22,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :durability %><br />
-    <%= f.text_field :durability %>
+    <%= f.label :gold %><br />
+    <%= f.text_field :gold %>
+  </div>
+
+  <div class="field">
+    <%= f.label :xp %><br />
+    <%= f.text_field :xp %>
   </div>
 
   <div class="actions">

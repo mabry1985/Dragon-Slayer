@@ -30,4 +30,33 @@ class User < ApplicationRecord
     item.users.push(user)
     item.save
   end
+
+  def fight
+    user = User.find(self.id)
+    enemy = Enemy.find(1)
+    if user.speed > enemy.speed
+      user.health -= enemy.strength
+      enemy.health -= user.strength
+      enemy.health -= user.strength
+    elsif user.speed < enemy.speed
+      user.health -= enemy.strength
+      user.health -= enemy.strength
+      enemy.health -= user.strength
+    else
+      user.health -= enemy.strength
+      enemy.health -= user.strength
+    end
+    user.update(:health => user.health)
+    enemy.update(:health => enemy.health)
+  if enemy.health <= 0
+    user.gold += enemy.gold
+    user.xp += enemy.xp
+  elsif user.health <= 0
+    user.default
+    items = Inventory.where(user_id: user.id)
+    items.each do |item|
+      item.destroy
+   end
+  end
+  end
 end

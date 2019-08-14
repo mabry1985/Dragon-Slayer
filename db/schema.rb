@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_170423) do
   enable_extension "plpgsql"
 
   create_table "enemies", force: :cascade do |t|
-    t.string "type"
+    t.string "name"
     t.integer "strength"
     t.integer "speed"
     t.integer "health"

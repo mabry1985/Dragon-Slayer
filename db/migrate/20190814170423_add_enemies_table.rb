@@ -1,7 +1,7 @@
 class AddEnemiesTable < ActiveRecord::Migration[5.2]
   def change
     create_table :enemies do |t|
-      t.string :type
+      t.string :name
       t.integer :strength
       t.integer :speed
       t.integer :health

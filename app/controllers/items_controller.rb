@@ -32,9 +32,9 @@ def edit
 end
 
 def update
-  binding.pry
-  @item = Item.find(params[:id => item_id])
+  @item = Item.find(params[:id])
   @item.save
+  binding.pry
   if @item.update(item_params)
     redirect_to user_item_path(current_user, @item)
   else
@@ -49,8 +49,20 @@ def destroy
   redirect_to all_items_path(@items)
 end
 
+def add
+  @user = User.find(current_user.id)
+  binding.pry
+  @item = Item.find(params[:id])
+  @item.users.push(current_user)
+  @item.save
+  @user.default
+  @user.equip
+  redirect_to all_items_path
+end
+
+
   private
   def item_params
-    params.require(:item).permit(:name, :strength, :speed, :health, :durability, :id)
+    params.fetch(:item, {}).permit(:name, :strength, :speed, :health, :durability)
   end
 end

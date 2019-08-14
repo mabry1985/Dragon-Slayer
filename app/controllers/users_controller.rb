@@ -9,7 +9,7 @@ end
 def update
   @user = User.find(params[:user])
   binding.pry
-  @item = Item.find(params[:item_id])
+  @item = Item.find(params[:id])
   @item.users.push(current_user)
   @item.save
   @user.default
@@ -17,5 +17,7 @@ def update
   redirect_to all_items_path
 end
 
-
+def fight
+   
+end
 end
